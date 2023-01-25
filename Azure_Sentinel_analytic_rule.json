@@ -1,0 +1,63 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspace": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "id": "[concat(resourceId('Microsoft.OperationalInsights/workspaces/providers', parameters('workspace'), 'Microsoft.SecurityInsights'),'/alertRules/7ed8ca33-882e-4544-85ce-158b9e82e236')]",
+            "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/7ed8ca33-882e-4544-85ce-158b9e82e236')]",
+            "type": "Microsoft.OperationalInsights/workspaces/providers/alertRules",
+            "kind": "Scheduled",
+            "apiVersion": "2022-09-01-preview",
+            "properties": {
+                "displayName": "Test-SecurityAlert(アラート名変更)",
+                "description": "This is Security Alert for Test\nTriggered by any SecurityAlert past 12h.",
+                "severity": "Medium",
+                "enabled": true,
+                "query": "SecurityAlert \n\n",
+                "queryFrequency": "PT12M",
+                "queryPeriod": "PT12H",
+                "triggerOperator": "GreaterThan",
+                "triggerThreshold": 0,
+                "suppressionDuration": "PT5H",
+                "suppressionEnabled": false,
+                "tactics": [],
+                "techniques": [],
+                "alertRuleTemplateName": null,
+                "incidentConfiguration": {
+                    "createIncident": true,
+                    "groupingConfiguration": {
+                        "enabled": false,
+                        "reopenClosedIncident": false,
+                        "lookbackDuration": "PT5H",
+                        "matchingMethod": "AllEntities",
+                        "groupByEntities": [],
+                        "groupByAlertDetails": [],
+                        "groupByCustomDetails": []
+                    }
+                },
+                "eventGroupingSettings": {
+                    "aggregationKind": "SingleAlert"
+                },
+                "alertDetailsOverride": {
+                    "alertDisplayNameFormat": "名前をカスタマイズした{{DisplayName}}のアラート",
+                    "alertDescriptionFormat": "{{TimeGenerated}}に生成された{{DisplayName}} のアラートです。初期のSeverityは{{AlertSeverity}}です。Columnは三つまでの制限があります。",
+                    "alertSeverityColumnName": "AlertSeverity",
+                    "alertDynamicProperties": [
+                        {
+                            "alertProperty": "ConfidenceScore",
+                            "value": "AlertName"
+                        }
+                    ]
+                },
+                "customDetails": null,
+                "entityMappings": null,
+                "sentinelEntitiesMappings": null
+            }
+        }
+    ]
+}
