@@ -1,6 +1,6 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.5",
+    "contentVersion": "1.0.0.6",
     "parameters": {
         "workspace": {
             "type": "String"
@@ -14,7 +14,7 @@
             "kind": "Scheduled",
             "apiVersion": "2022-09-01-preview",
             "properties": {
-                "displayName": "Test-SecurityAlert(アラート名変更)v1.0.0.5,
+                "displayName": "Test-SecurityAlert(アラート名変更)v1.0.0.6,
                 "description": "This is Security Alert for Test\nTriggered by any SecurityAlert past 12h.",
                 "severity": "Medium",
                 "enabled": true,
