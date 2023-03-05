@@ -1,6 +1,6 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.6",
+    "contentVersion": "1.0.0.0",
     "parameters": {
         "workspace": {
             "type": "String"
@@ -14,9 +14,9 @@
             "kind": "Scheduled",
             "apiVersion": "2022-09-01-preview",
             "properties": {
-                "displayName": "Test-SecurityAlert(アラート名変更)v1.0.0.6”,
+                "displayName": "Test-SecurityAlert(アラート名変更)v1.0.0.5",
                 "description": "This is Security Alert for Test\nTriggered by any SecurityAlert past 12h.",
-                "severity": "Medium",
+                "severity": "中",
                 "enabled": true,
                 "query": "SecurityAlert \n\n",
                 "queryFrequency": "PT12H",
@@ -25,6 +25,7 @@
                 "triggerThreshold": 0,
                 "suppressionDuration": "PT5H",
                 "suppressionEnabled": false,
+                "startTimeUtc": null,
                 "tactics": [],
                 "techniques": [],
                 "alertRuleTemplateName": null,
@@ -46,17 +47,12 @@
                 "alertDetailsOverride": {
                     "alertDisplayNameFormat": "名前をカスタマイズした{{DisplayName}}のアラート",
                     "alertDescriptionFormat": "{{TimeGenerated}}に生成された{{DisplayName}} のアラートです。初期のSeverityは{{AlertSeverity}}です。Columnは三つまでの制限があります。",
-                    "alertSeverityColumnName": "AlertSeverity",
-                    "alertDynamicProperties": [
-                        {
-                            "alertProperty": "ConfidenceScore",
-                            "value": "AlertName"
-                        }
-                    ]
+                    "alertSeverityColumnName": "AlertSeverity"
                 },
                 "customDetails": null,
                 "entityMappings": null,
-                "sentinelEntitiesMappings": null
+                "sentinelEntitiesMappings": null,
+                "templateVersion": null
             }
         }
     ]
