@@ -14,7 +14,7 @@
             "kind": "Scheduled",
             "apiVersion": "2022-09-01-preview",
             "properties": {
-                "displayName": "Test-SecurityAlert(アラート名変更)v1.0.0.4",
+                "displayName": "Test-SecurityAlert(アラート名変更)v1.0.0.5,
                 "description": "This is Security Alert for Test\nTriggered by any SecurityAlert past 12h.",
                 "severity": "Medium",
                 "enabled": true,
