@@ -16,7 +16,7 @@
             "properties": {
                 "displayName": "Test-SecurityAlert(アラート名変更)v1.0.0.6",
                 "description": "This is Security Alert for Test\nTriggered by any SecurityAlert past 12h.Updated 2023/03/05",
-                "severity": "中",
+                "severity": "Medium",
                 "enabled": true,
                 "query": "SecurityAlert \n\n",
                 "queryFrequency": "PT12H",
